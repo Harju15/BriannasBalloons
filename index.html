@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brianna's Balloon Arches</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+     <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="#home" class="navbar-logo">Blissful Balloons</a>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li class="navbar-item">
+                    <a href="#home" class="navbar-link active">Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#about" class="navbar-link">About</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#prices" class="navbar-link">Prices</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#contact" class="navbar-link">Contact</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="test2.html" >Build Your Own</a>
+                </li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobile-toggle">☰</button>
+        </div>
+    </nav>
+    <!-- Section 1: Hero with Carousel -->
+    <section class="hero-section" id="home">
+        <div class="carousel-container" id="carousel">
+            <div class="carousel-slide" style="background-image: url('/img/wedding.jpg')"></div>
+            <div class="carousel-slide" style="background-image: url('/img/animals.jpg')"></div>
+            <div class="carousel-slide" style="background-image: url('/img/babybday.jpg')"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="business-name" >Brianna's Balloon Arches</h1>
+           
+            <p class="hero-subtitle" >Creating magical moments with stunning balloon arrangements</p>
+            <button class="cta-button" style="background: linear-gradient(135deg, rgba(233, 30, 99, 0.7) 0%, rgba(252, 228, 236, 0.7) 100%); color: white;">Book Your Event</button>
+        </div>
+        <div class="carousel-nav">
+            <div class="nav-dot active" onclick="goToSlide(0)"></div>
+            <div class="nav-dot" onclick="goToSlide(1)"></div>
+            <div class="nav-dot" onclick="goToSlide(2)"></div>
+        </div>
+    </section>
+
+    <!-- Section 2: About Us -->
+    <section class="about-section" id="about">
+        <div class="about-image">
+            <img src="img/kidsbday.jpg">
+        </div>
+        <div class="about-content">
+            <h2 class="section-title">About Us</h2>
+            <p class="about-text">
+                We are a small family company with big ideas and years of experience! We want to help all of your dreams come true when it comes to the perfect balloon arches and decor for every situation. Whether it be a birthday party or a wedding. A graduation or anniversary celebration, We can make it feel special.
+            </p>
+            <p class="about-text">
+                We bring creativity and life to every event we do. We like to be innovators in the field and WOW every single customer with events that feel special and unique to them. You will be the center of attention but the decor will be a close second!
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 3: Services -->
+    <section class="services-section" id="services">
+        <div class="services-container" >
+            <h2 class="section-title">Our Services</h2>
+             <div class="">
+            <img src="img/bluey.jpg" style="width: 45rem; height: 25rem; border-radius: 20px;">
+        </div>
+            <div class="services-content">
+                <div class="service-card">
+                    <h3 class="service-title">Custom Balloon Arches</h3>
+                    <p>We create stunning, personalized balloon arches that perfectly match your event's theme and color scheme. From elegant organic designs to structured geometric patterns, our arches serve as the perfect backdrop for your most treasured moments. Each arch is meticulously crafted using premium quality balloons that maintain their beauty throughout your entire event.</p>
+                </div>
+                <div class="service-card">
+                    <h3 class="service-title">Event Decoration Packages</h3>
+                    <p>Transform your entire venue with our comprehensive decoration packages. We offer complete event styling services including balloon walls, centerpieces, entrance displays, and coordinated color schemes. Our team handles everything from initial consultation to final installation, ensuring a stress-free experience that exceeds your expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Pricing -->
+    <section class="pricing-section" id="prices">
+        <div class="pricing-container" >
+            <h2 class="section-title">Our Packages</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Essential</h3>
+                    <div class="pricing-price">$199</div>
+                    <ul class="pricing-features">
+                        <li>Basic balloon arch (8-10 feet)</li>
+                        <li>Single color scheme</li>
+                        <li>Standard balloon quality</li>
+                        <li>Basic installation</li>
+                        <li>2-hour event coverage</li>
+                    </ul>
+                    <button class="pricing-button">Choose Essential</button>
+                </div>
+                <div class="pricing-card popular">
+                    <h3 class="pricing-title">Premium</h3>
+                    <div class="pricing-price">$399</div>
+                    <ul class="pricing-features">
+                        <li>Organic balloon arch (12-15 feet)</li>
+                        <li>Multi-color custom design</li>
+                        <li>Premium balloon quality</li>
+                        <li>Professional installation</li>
+                        <li>4-hour event coverage</li>
+                        <li>Balloon bouquet included</li>
+                    </ul>
+                    <button class="pricing-button">Choose Premium</button>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Luxury</h3>
+                    <div class="pricing-price">$699</div>
+                    <ul class="pricing-features">
+                        <li>Grand balloon arch (16+ feet)</li>
+                        <li>Complex custom design</li>
+                        <li>Ultra-premium balloons</li>
+                        <li>Full venue styling</li>
+                        <li>All-day event coverage</li>
+                        <li>Additional decorative elements</li>
+                        <li>Consultation & design service</li>
+                    </ul>
+                    <button class="pricing-button">Choose Luxury</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Contact -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-content" id="contact">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="about-text">
+                    If you're ready to make your next event your best event reach out and let's get started on unforgetable experience!
+                </p>
+                <div class="contact-info">
+                    <form action="">
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>(555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <span>TBD</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>Statesvillle, NC</span>
+                    </div>
+                    </form>
+                    <button class="cta-button" style="background: linear-gradient(135deg, rgba(233, 30, 99, 0.7) 0%, rgba(252, 228, 236, 0.7) 100%); color: white;" id="openModal">Submit an Inqury</button>
+                </div>
+            </div>
+            <div class="contact-image">
+                <img src="img/standardarch.jpg" alt="Contact Us" >
+            </div>
+        </div>
+
+        <div id="bookingModal" class="modal" >
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button class="close-button" id="closeModal">&times;</button>
+                <h2 class="modal-title">Book Your Event</h2>
+                <p class="modal-subtitle">Let's create something magical together!</p>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label class="form-label" for="clientName">Your Name *</label>
+                        <input type="text" id="clientName" name="clientName" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="clientEmail">Email Address *</label>
+                        <input type="email" id="clientEmail" name="clientEmail" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="clientPhone">Phone Number</label>
+                        <input type="tel" id="clientPhone" name="clientPhone" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="eventDate">Event Date</label>
+                        <input type="date" id="eventDate" name="eventDate" class="form-input">
+                    </div>
+                    
+                    <!-- <div class="form-group">
+                        <label class="form-label" for="eventType">Event Type</label>
+                        <select id="eventType" name="eventType" class="form-input">
+                            <option value="">Select Event Type</option>
+                            <option value="birthday">Birthday Party</option>
+                            <option value="wedding">Wedding</option>
+                            <option value="corporate">Corporate Event</option>
+                            <option value="baby-shower">Baby Shower</option>
+                            <option value="graduation">Graduation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div> -->
+                    
+                    <!-- <div class="form-group">
+                        <label class="form-label" for="packageType">Preferred Package</label>
+                        <select id="packageType" name="packageType" class="form-input">
+                            <option value="">Select Package</option>
+                            <option value="essential">Essential - $199</option>
+                            <option value="premium">Premium - $399</option>
+                            <option value="luxury">Luxury - $699</option>
+                            <option value="custom">Custom Quote</option>
+                        </select>
+                    </div> -->
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="eventDetails">Tell us about your vision</label>
+                        <textarea id="eventDetails" name="eventDetails" class="form-input form-textarea" placeholder="Describe your event, color preferences, venue details, and any special requirements..."></textarea>
+                    </div>
+                    
+                    <div class="modal-buttons">
+                        <button type="button" class="modal-btn modal-btn-secondary" id="cancelBtn">Cancel</button>
+                        <button type="submit" class="modal-btn modal-btn-primary">Send Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </section>
+
+  <script src="js/js.js"></script>
+</body>
+</html>

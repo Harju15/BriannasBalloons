@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Arch Designer</title>
+     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+   <link rel="stylesheet" href="css/Balloon.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="background-controls">
+            <h3>Background</h3>
+            <div class="bg-options">
+                <div class="bg-option" style="background: #ffffff;" data-bg="#ffffff" title="White"></div>
+                <div class="bg-option active" style="background: #87CEEB;" data-bg="#87CEEB" title="Sky Blue"></div>
+                <div class="bg-option" style="background: #98FB98;" data-bg="#98FB98" title="Pale Green"></div>
+                <div class="bg-option" style="background: #FFB6C1;" data-bg="#FFB6C1" title="Light Pink"></div>
+                <div class="bg-option" style="background: #DDA0DD;" data-bg="#DDA0DD" title="Plum"></div>
+                <div class="bg-option" style="background: #F0E68C;" data-bg="#F0E68C" title="Khaki"></div>
+                <div class="bg-option" style="background: #FFA07A;" data-bg="#FFA07A" title="Light Salmon"></div>
+            </div>
+        </div>
+        
+        <div class="balloon-section">
+            <h3>Small Balloon Clusters</h3>
+            <div class="price-info">$20.00 per square foot</div>
+            <div class="balloon-templates" id="small-balloons">
+                <!-- Small balloon clusters will be generated here -->
+            </div>
+            <div class="color-picker" id="small-colors">
+                <div class="color-option active" style="background: #ff6b6b;" data-color="#ff6b6b"></div>
+                <div class="color-option" style="background: #4ecdc4;" data-color="#4ecdc4"></div>
+                <div class="color-option" style="background: #45b7d1;" data-color="#45b7d1"></div>
+                <div class="color-option" style="background: #96ceb4;" data-color="#96ceb4"></div>
+                <div class="color-option" style="background: #ffeaa7;" data-color="#ffeaa7"></div>
+                <div class="color-option" style="background: #dda0dd;" data-color="#dda0dd"></div>
+                <div class="color-option" style="background: #ffffff; border: 2px solid #ccc;" data-color="#ffffff"></div>
+                <div class="color-option" style="background: #333333;" data-color="#333333"></div>
+            </div>
+        </div>
+        
+        <div class="balloon-section">
+            <h3>Medium Balloon Clusters</h3>
+            <div class="price-info">$20.00 per square foot</div>
+            <div class="balloon-templates" id="medium-balloons">
+                <!-- Medium balloon clusters will be generated here -->
+            </div>
+            <div class="color-picker" id="medium-colors">
+                <div class="color-option active" style="background: #ff6b6b;" data-color="#ff6b6b"></div>
+                <div class="color-option" style="background: #4ecdc4;" data-color="#4ecdc4"></div>
+                <div class="color-option" style="background: #45b7d1;" data-color="#45b7d1"></div>
+                <div class="color-option" style="background: #96ceb4;" data-color="#96ceb4"></div>
+                <div class="color-option" style="background: #ffeaa7;" data-color="#ffeaa7"></div>
+                <div class="color-option" style="background: #dda0dd;" data-color="#dda0dd"></div>
+                <div class="color-option" style="background: #ffffff; border: 2px solid #ccc;" data-color="#ffffff"></div>
+                <div class="color-option" style="background: #333333;" data-color="#333333"></div>
+            </div>
+        </div>
+        
+        <div class="balloon-section">
+            <h3>Large Balloons</h3>
+            <div class="price-info">$10.00 each</div>
+            <div class="balloon-templates" id="large-balloons">
+                <!-- Large balloons will be generated here -->
+            </div>
+            <div class="color-picker" id="large-colors">
+                <div class="color-option active" style="background: #ff6b6b;" data-color="#ff6b6b"></div>
+                <div class="color-option" style="background: #4ecdc4;" data-color="#4ecdc4"></div>
+                <div class="color-option" style="background: #45b7d1;" data-color="#45b7d1"></div>
+                <div class="color-option" style="background: #96ceb4;" data-color="#96ceb4"></div>
+                <div class="color-option" style="background: #ffeaa7;" data-color="#ffeaa7"></div>
+                <div class="color-option" style="background: #dda0dd;" data-color="#dda0dd"></div>
+                <div class="color-option" style="background: #ffffff; border: 2px solid #ccc;" data-color="#ffffff"></div>
+                <div class="color-option" style="background: #333333;" data-color="#333333"></div>
+            </div>
+        </div>
+        
+        <div class="message-section">
+            <h3>Custom Messages</h3>
+            <textarea class="message-input" id="message-input" placeholder="Type your message here (keep it short!)" maxlength="50"></textarea>
+            <button class="add-message-btn" id="add-message-btn" onclick="addMessage()">Add Message</button>
+            <div class="message-templates" id="message-templates">
+                <!-- Message templates will appear here -->
+            </div>
+        </div>
+        
+        <div class="text-style-section">
+            <h3>Message Styling</h3>
+            <div class="style-controls">
+                <div class="style-group">
+                    <label>Background Color:</label>
+                    <div class="style-options" id="bg-color-options">
+                        <div class="style-option bg-black active" onclick="changeBgColor('black')" data-bg="black" title="Black">BG</div>
+                        <div class="style-option bg-white" onclick="changeBgColor('white')" data-bg="white" title="White">BG</div>
+                        <div class="style-option bg-gold" onclick="changeBgColor('gold')" data-bg="gold" title="Gold">BG</div>
+                        <div class="style-option bg-green" onclick="changeBgColor('green')" data-bg="green" title="Green">BG</div>
+                        <div class="style-option bg-red" onclick="changeBgColor('red')" data-bg="red" title="Red">BG</div>
+                        <div class="style-option bg-blue" onclick="changeBgColor('blue')" data-bg="blue" title="Blue">BG</div>
+                    </div>
+                </div>
+                <div class="style-group">
+                    <label>Font Color:</label>
+                    <div class="style-options" id="font-color-options">
+                        <div class="style-option text-black" onclick="changeFontColor('black')" data-font="black" title="Black">A</div>
+                        <div class="style-option text-white active" onclick="changeFontColor('white')" data-font="white" title="White">A</div>
+                        <div class="style-option text-gold" onclick="changeFontColor('gold')" data-font="gold" title="Gold">A</div>
+                        <div class="style-option text-green" onclick="changeFontColor('green')" data-font="green" title="Green">A</div>
+                        <div class="style-option text-red" onclick="changeFontColor('red')" data-font="red" title="Red">A</div>
+                        <div class="style-option text-blue" onclick="changeFontColor('blue')" data-font="blue" title="Blue">A</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="clear-btn" onclick="clearCanvas()">Clear All Balloons</button>
+    </div>
+    
+    <div class="main-area">
+        <div class="price-display">
+            <h2>Total: $<span id="total-price">0.00</span></h2>
+        </div>
+        
+        <div class="canvas-area" id="canvas">
+            <!-- Balloon arch background -->
+            <svg class="balloon-arch-bg" width="1200" height="800" viewBox="0 0 1200 800">
+                <defs>
+                    <pattern id="archPattern" patternUnits="userSpaceOnUse" width="80" height="80">
+                        <circle cx="40" cy="40" r="30" fill="none" stroke="#333" stroke-width="4" stroke-dasharray="6,6" opacity="0.8"/>
+                    </pattern>
+                </defs>
+                
+                <!-- Left pillar -->
+                <rect x="100" y="400" width="40" height="300" fill="none" stroke="#333" stroke-width="6" stroke-dasharray="10,10" opacity="0.8"/>
+                
+                <!-- Right pillar -->
+                <rect x="1060" y="400" width="40" height="300" fill="none" stroke="#333" stroke-width="6" stroke-dasharray="10,10" opacity="0.8"/>
+                
+                <!-- Arch curve -->
+                <path d="M 140 400 Q 600 100 1060 400" fill="none" stroke="#333" stroke-width="8" stroke-dasharray="16,8" opacity="0.9"/>
+                
+                <!-- Inner arch curve -->
+                <path d="M 180 400 Q 600 160 1020 400" fill="none" stroke="#333" stroke-width="6" stroke-dasharray="12,6" opacity="0.7"/>
+                
+                <!-- Balloon placement guides -->
+                <circle cx="140" cy="400" r="10" fill="#333" opacity="0.8"/>
+                <circle cx="220" cy="300" r="10" fill="#333" opacity="0.8"/>
+                <circle cx="320" cy="220" r="10" fill="#333" opacity="0.8"/>
+                <circle cx="440" cy="170" r="10" fill="#333" opacity="0.8"/>
+                <circle cx="560" cy="140" r="10" fill="#333" opacity="0.8"/>
+                <circle cx="640" cy="140" r="10" fill="#333" opacity="0.8"/>
+                <circle cx="760" cy="170" r="10" fill="#333" opacity="0.8"/>
+                <circle cx="880" cy="220" r="10" fill="#333" opacity="0.8"/>
+                <circle cx="980" cy="300" r="10" fill="#333" opacity="0.8"/>
+                <circle cx="1060" cy="400" r="10" fill="#333" opacity="0.8"/>
+                
+                <!-- Base markers -->
+                <rect x="120" y="700" width="80" height="16" fill="#333" opacity="0.7" rx="8"/>
+                <rect x="1000" y="700" width="80" height="16" fill="#333" opacity="0.7" rx="8"/>
+                
+                <!-- Center guide -->
+                <text x="600" y="780" text-anchor="middle" font-family="Arial" font-size="28" fill="#333" opacity="0.8" font-weight="bold">Balloon Arch Guide</text>
+            </svg>
+            
+            <!-- Balloons will be dropped here -->
+            <div class="balloon-controls" id="balloon-controls">
+                <button class="layer-btn" id="send-back-btn" onclick="sendBalloonBack()">Send Back</button>
+                <span class="controls-text">Layer Control</span>
+                <button class="layer-btn" id="bring-forward-btn" onclick="bringBalloonForward()">Bring Forward</button>
+                <span class="controls-text">|</span>
+                <button class="layer-btn" onclick="deleteBalloon()" style="background: #dc3545;">Delete</button>
+            </div>
+        </div>
+    </div>
+    
+  <script src="js/balloon.js"></script>
+</body>
+</html>
