@@ -2,102 +2,678 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brianna's Balloon Arches</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Contact - Brianna's Balloon Arches</title>
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-   <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pascal-pink: #E91E63;
+            --light-pink: #FCE4EC;
+            --white: #FFFFFF;
+            --dark-text: #2C2C2C;
+            --shadow: 0 10px 30px rgba(233, 30, 99, 0.2);
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--pascal-pink) 0%, var(--light-pink) 100%);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(233, 30, 99, 0.1);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--pascal-pink);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-item {
+            position: relative;
+        }
+
+        .navbar-link {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        .navbar-link:hover {
+            color: var(--pascal-pink);
+            background: var(--light-pink);
+            transform: translateY(-2px);
+        }
+
+        .navbar-link.active {
+            color: var(--white);
+            background: var(--pascal-pink);
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--pascal-pink);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            min-height: 100vh;
+            padding: 6rem 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .contact-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(233, 30, 99, 0.3);
+            position: relative;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            color: var(--pascal-pink);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .contact-subtitle {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            opacity: 0.8;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--dark-text);
+            font-size: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--light-pink);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--pascal-pink);
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .form-btn {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            text-decoration: none;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+        }
+
+        .form-btn-primary {
+            background: var(--pascal-pink);
+            color: var(--white);
+        }
+
+        .form-btn-primary:hover {
+            background: #C2185B;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(233, 30, 99, 0.3);
+        }
+
+        .form-btn-secondary {
+            background: var(--light-pink);
+            color: var(--pascal-pink);
+        }
+
+        .form-btn-secondary:hover {
+            background: #F8BBD9;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .contact-section {
+                padding: 5rem 0.5rem 1rem;
+                min-height: 100vh;
+            }
+
+            .contact-container {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
+                border-radius: 15px;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+            }
+
+            .contact-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .form-input {
+                padding: 1rem;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            .form-textarea {
+                min-height: 100px;
+            }
+
+            .form-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .form-btn {
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .navbar-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 20px rgba(233, 30, 99, 0.2);
+                transform: translateY(-20px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                gap: 0;
+            }
+
+            .navbar-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .navbar-item {
+                margin: 0.5rem 0;
+            }
+
+            .navbar-link {
+                display: block;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .navbar {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .contact-container {
+                margin: 0 1rem;
+            }
+
+            .contact-title {
+                font-size: 2.2rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .navbar-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 20px rgba(233, 30, 99, 0.2);
+                transform: translateY(-20px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                gap: 0;
+            }
+
+            .navbar-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .navbar-item {
+                margin: 0.5rem 0;
+            }
+
+            .navbar-link {
+                display: block;
+                text-align: center;
+                padding: 1rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .contact-section {
+                padding: 6rem 2rem 2rem;
+            }
+
+            .contact-container {
+                max-width: 700px;
+                padding: 2.5rem;
+            }
+
+            .contact-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .contact-section {
+                padding: 6rem 2rem 2rem;
+            }
+
+            .contact-container {
+                max-width: 800px;
+                padding: 3rem;
+            }
+
+            .contact-title {
+                font-size: 3rem;
+            }
+        }
+
+        /* Landscape orientation on phones */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .contact-section {
+                min-height: auto;
+                padding: 4rem 1rem 2rem;
+            }
+
+            .contact-container {
+                margin: 1rem auto;
+            }
+
+            .contact-title {
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .contact-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .form-textarea {
+                min-height: 80px;
+            }
+        }
+
+        /* Safe area for notched devices */
+        @supports (padding: max(0px)) {
+            .navbar {
+                padding-left: max(2rem, env(safe-area-inset-left));
+                padding-right: max(2rem, env(safe-area-inset-right));
+            }
+
+            .contact-section {
+                padding-left: max(1rem, env(safe-area-inset-left));
+                padding-right: max(1rem, env(safe-area-inset-right));
+                padding-bottom: max(2rem, env(safe-area-inset-bottom));
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .form-btn:hover {
+                transform: none;
+            }
+
+            .form-btn:active {
+                transform: scale(0.98);
+            }
+
+            .navbar-link:hover {
+                transform: none;
+                background: var(--light-pink);
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .navbar {
+                background: var(--white);
+                border-bottom: 2px solid var(--pascal-pink);
+            }
+
+            .contact-container {
+                background: var(--white);
+                border: 2px solid var(--pascal-pink);
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Ensure scrollability on all devices */
+        html {
+            scroll-behavior: smooth;
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        /* iOS Safari specific fixes */
+        @supports (-webkit-appearance: none) {
+            .contact-section {
+                min-height: -webkit-fill-available;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
-
-     <!-- Navigation Bar -->
-    <nav class="navbar" id="navbar" >
+    <!-- Navigation Bar -->
+    <nav class="navbar">
         <div class="navbar-container">
-            <a href="#home" class="navbar-logo">Brianna's Balloon Arches</a>
+            <a href="index.html" class="navbar-logo">Brianna's Balloon Arches</a>
             <ul class="navbar-menu" id="navbar-menu">
                 <li class="navbar-item">
-                    <a href="#home" class="navbar-link active">Home</a>
+                    <a href="index.html" class="navbar-link">Home</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="#about" class="navbar-link">About</a>
+                    <a href="index.html#about" class="navbar-link">About</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="#prices" class="navbar-link">Prices</a>
+                    <a href="index.html#prices" class="navbar-link">Prices</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="#contact" class="navbar-link">Contact</a>
+                    <a href="contact.html" class="navbar-link active">Contact</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="test2.html" >Build Your Own</a>
+                    <a href="test2.html" class="navbar-link">Build Your Own</a>
                 </li>
             </ul>
             <button class="mobile-menu-toggle" id="mobile-toggle">☰</button>
         </div>
     </nav>
-    <!-- Section 1: Hero with Carousel -->
-    <section class="hero-section" id="home">
-        <div >
-        <form id="bookingForm" style="height: auto; width: auto;">
-                    <div class="form-group">
-                        <label class="form-label" for="clientName">Your Name *</label>
-                        <input type="text" id="clientName" name="clientName" class="form-input" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="clientEmail">Email Address *</label>
-                        <input type="email" id="clientEmail" name="clientEmail" class="form-input" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="clientPhone">Phone Number</label>
-                        <input type="tel" id="clientPhone" name="clientPhone" class="form-input">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="eventDate">Event Date</label>
-                        <input type="date" id="eventDate" name="eventDate" class="form-input">
-                    </div>
-                    
-                     <div class="form-group">
-                        <label class="form-label" for="eventType">Event Type</label>
-                        <select id="eventType" name="eventType" class="form-input">
-                            <option value="">Select Event Type</option>
-                            <option value="birthday">Birthday Party</option>
-                            <option value="wedding">Wedding</option>
-                            <option value="corporate">Corporate Event</option>
-                            <option value="baby-shower">Baby Shower</option>
-                            <option value="graduation">Graduation</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div> 
-                    
-                     <div class="form-group">
-                        <label class="form-label" for="packageType">Preferred Package</label>
-                        <select id="packageType" name="packageType" class="form-input">
-                            <option value="">Select Package</option>
-                            <option value="essential">Essential - $199</option>
-                            <option value="premium">Premium - $399</option>
-                            <option value="luxury">Luxury - $699</option>
-                            <option value="custom">Custom Quote</option>
-                        </select>
-                    </div> 
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="eventDetails">Tell us about your vision</label>
-                        <textarea id="eventDetails" name="eventDetails" class="form-input form-textarea" placeholder="Describe your event, color preferences, venue details, and any special requirements..."></textarea>
-                    </div>
-                    
-                    <div class="modal-buttons">
-                        <a class="cta-button" style="background: linear-gradient(135deg, rgba(233, 30, 99, 0.7) 0%, rgba(252, 228, 236, 0.7) 100%); color: white;" id="openModal" href="index.html" >Cancel</a>
-                        <button type="submit" class="modal-btn modal-btn-primary" id="submit">Send Request</button>
-                    </div>
-                </form>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container loading">
+            <div class="contact-header">
+                <h1 class="contact-title">Get Your Quote</h1>
+                <p class="contact-subtitle">Let's create something beautiful together</p>
+            </div>
+
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label class="form-label" for="clientName">Your Name *</label>
+                    <input type="text" id="clientName" name="clientName" class="form-input" required>
                 </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="clientEmail">Email Address *</label>
+                    <input type="email" id="clientEmail" name="clientEmail" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="clientPhone">Phone Number</label>
+                    <input type="tel" id="clientPhone" name="clientPhone" class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="eventDate">Event Date</label>
+                    <input type="date" id="eventDate" name="eventDate" class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="eventType">Event Type</label>
+                    <select id="eventType" name="eventType" class="form-input">
+                        <option value="">Select Event Type</option>
+                        <option value="birthday">Birthday Party</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="corporate">Corporate Event</option>
+                        <option value="baby-shower">Baby Shower</option>
+                        <option value="graduation">Graduation</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div> 
+                
+                <div class="form-group">
+                    <label class="form-label" for="packageType">Preferred Package</label>
+                    <select id="packageType" name="packageType" class="form-input">
+                        <option value="">Select Package</option>
+                        <option value="essential">Essential - $199</option>
+                        <option value="premium">Premium - $399</option>
+                        <option value="luxury">Luxury - $699</option>
+                        <option value="custom">Custom Quote</option>
+                    </select>
+                </div> 
+                
+                <div class="form-group">
+                    <label class="form-label" for="eventDetails">Tell us about your vision</label>
+                    <textarea id="eventDetails" name="eventDetails" class="form-input form-textarea" placeholder="Describe your event, color preferences, venue details, and any special requirements..."></textarea>
+                </div>
+                
+                <div class="form-buttons">
+                    <a href="index.html" class="form-btn form-btn-secondary">Cancel</a>
+                    <button type="submit" class="form-btn form-btn-primary" id="submit">Send Request</button>
+                </div>
+            </form>
+        </div>
     </section>
 
-    
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
 
-       
+        mobileToggle.addEventListener('click', function() {
+            navbarMenu.classList.toggle('active');
+        });
 
-  <script src="js/js.js"></script>
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.navbar-container')) {
+                navbarMenu.classList.remove('active');
+            }
+        });
+
+        // Form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.clientName || !data.clientEmail) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Simulate form submission
+            const submitBtn = document.getElementById('submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                alert('Thank you! Your request has been submitted. We\'ll get back to you soon!');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                this.reset();
+            }, 2000);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.opacity = '1';
+        });
+
+        // Prevent zoom on iOS when focusing input fields
+        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+            const inputs = document.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.style.fontSize = '16px';
+                });
+                input.addEventListener('blur', function() {
+                    this.style.fontSize = '';
+                });
+            });
+        }
+
+        // Handle viewport height changes on mobile
+        function setVH() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+
+        window.addEventListener('resize', setVH);
+        setVH();
+    </script>
 </body>
 </html>
