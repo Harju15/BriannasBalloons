@@ -1,4 +1,4 @@
- let totalPrice = 0;
+let totalPrice = 0;
         let balloonCounter = 0;
         let draggedElement = null;
         let selectedBalloon = null;
@@ -565,44 +565,60 @@
         function setupResizeHandlers(textElement, resizeHandle) {
             let startX, startY, startWidth, startHeight;
             
-            resizeHandle.addEventListener('mousedown', (e) => {
+            function getEventPos(e) {
+                return e.touches ? e.touches[0] : e;
+            }
+            
+            function startResize(e) {
                 e.stopPropagation();
                 e.preventDefault();
                 
                 isResizing = true;
-                startX = e.clientX;
-                startY = e.clientY;
+                const pos = getEventPos(e);
+                startX = pos.clientX;
+                startY = pos.clientY;
                 startWidth = parseInt(document.defaultView.getComputedStyle(textElement).width, 10);
                 startHeight = parseInt(document.defaultView.getComputedStyle(textElement).height, 10);
                 
                 textElement.style.cursor = 'se-resize';
                 document.body.style.userSelect = 'none';
                 
-                console.log('Starting resize'); // Debug log
-            });
+                console.log('Starting resize');
+            }
             
-            document.addEventListener('mousemove', (e) => {
+            function doResize(e) {
                 if (!isResizing) return;
                 
                 e.preventDefault();
                 
-                const newWidth = Math.max(80, Math.min(400, startWidth + e.clientX - startX));
-                const newHeight = Math.max(30, Math.min(200, startHeight + e.clientY - startY));
+                const pos = getEventPos(e);
+                const newWidth = Math.max(60, Math.min(350, startWidth + pos.clientX - startX));
+                const newHeight = Math.max(24, Math.min(150, startHeight + pos.clientY - startY));
                 
                 textElement.style.width = newWidth + 'px';
                 textElement.style.height = newHeight + 'px';
                 
                 updateFontSize(textElement);
-            });
+            }
             
-            document.addEventListener('mouseup', () => {
+            function endResize() {
                 if (isResizing) {
                     isResizing = false;
                     textElement.style.cursor = 'move';
                     document.body.style.userSelect = '';
-                    console.log('Finished resize'); // Debug log
+                    console.log('Finished resize');
                 }
-            });
+            }
+            
+            // Mouse events
+            resizeHandle.addEventListener('mousedown', startResize);
+            document.addEventListener('mousemove', doResize);
+            document.addEventListener('mouseup', endResize);
+            
+            // Touch events
+            resizeHandle.addEventListener('touchstart', startResize, { passive: false });
+            document.addEventListener('touchmove', doResize, { passive: false });
+            document.addEventListener('touchend', endResize);
         }
         
         // Initialize the application
